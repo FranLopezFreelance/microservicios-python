@@ -4,7 +4,7 @@ from wsgiref.simple_server import make_server
 def application(environ, start_response):
     headers = [('Content-type', 'application/json')]
 
-    start_response('200 OK', 'headers')
+    start_response('200 OK', headers)
 
     response = {
         'message' : 'Hola Mundo desde el Servidor'
@@ -12,5 +12,5 @@ def application(environ, start_response):
 
     return [ bytes(json.dumps(response), 'utf-8')]
 
-server = make_server('localhost', 8000, application)
+server = make_server('localhost', 7000, application)
 server.handle_request()
